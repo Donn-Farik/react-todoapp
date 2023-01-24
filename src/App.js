@@ -1,23 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
 function App() {
+  const [title, setTitle] = useState("");
+  const [todos, setTodos] = useState([]);
+  // const handleClick = (event) => {
+  //   event.preventDefault();
+  //   setTitle("");
+  // };
+  const handleChange = (e) => {
+    setTitle(e.target.value);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newTodo = {
+      id: crypto.randomUUID(),
+      title: title,
+      completed: false,
+    };
+    setTodos([...todos, newTodo]);
+    setTitle("");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="todoContainer">
+      <form className="todoCreateForm" onSubmit={handleSubmit}>
+        <input className="todoInput" value={title} onChange={handleChange} />
+
+        <input
+          type="submit"
+          value="Create todo "
+          className="buttonCreate"
+          onClick={handleSubmit}
+        />
+      </form>
+      <div className="todosContainer">
+        {todos.map((todo) => (
+          <div> {todo.title} </div>
+        ))}
+      </div>
     </div>
   );
 }
