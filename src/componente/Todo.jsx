@@ -1,26 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
-function Todo({ todo }) {
-  const [isEdit, setIsEdit] = useState(false);
-  const FormEdit = () => {
-    return (
-      <form>
-        <input />
-        <button>Update</button>
-      </form>
-    );
-  };
-
-  const TodoElement = () => {
-    return (
-      <div className="todoInfo">
-        {todo.title}
-        <button onClick={() => setIsEdit(true)}>Edit</button>
-        <button>Delete</button>
-      </div>
-    );
-  };
-
-  return <div className="todo">{isEdit ? <FormEdit /> : <TodoElement />}</div>;
+function Todo({ todo, onDelete }) {
+  return (
+    <div>
+      {todo.title}
+      <button>completed</button>
+      <button onClick={(e) => onDelete(todo.id)}>Delete</button>
+    </div>
+  );
 }
+
 export default Todo;

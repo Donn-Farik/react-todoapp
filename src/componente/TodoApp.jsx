@@ -1,13 +1,11 @@
 import { useState } from "react";
 import Todo from "./Todo.jsx";
+import "./todoApp.css";
 
 function App() {
   const [title, setTitle] = useState("");
   const [todos, setTodos] = useState([]);
-  // const handleClick = (event) => {
-  //   event.preventDefault();
-  //   setTitle("");
-  // };
+
   const handleChange = (e) => {
     setTitle(e.target.value);
   };
@@ -20,6 +18,10 @@ function App() {
     };
     setTodos([...todos, newTodo]);
     setTitle("");
+  };
+  const handleDelete = (id) => {
+    // const temp = todos.filter((item) => item.id !== id);
+    setTodos(todos.filter((item) => item.id !== id));
   };
 
   return (
@@ -36,7 +38,7 @@ function App() {
       </form>
       <div className="todosContainer">
         {todos.map((todo) => (
-          <Todo key={todo.id} todo={todo} />
+          <Todo key={todo.id} todo={todo} onDelete={handleDelete} />
         ))}
       </div>
     </div>
