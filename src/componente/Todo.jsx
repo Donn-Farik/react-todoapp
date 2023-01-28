@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Todo({ todo, onDelete }) {
+  const [completed, setCompleted] = useState(false);
+  const handleCompleted = () => {
+    setCompleted((completed) => !completed);
+    console.log("click");
+  };
   return (
     <div className="todoInfo">
-      <span className="todoTitle">{todo.title}</span>
+      <span className={completed ? "todoTitleCompleted" : "todoTitle "}>
+        {" "}
+        {todo.title}
+      </span>
 
-      <button className="button">completed</button>
+      <button onClick={handleCompleted} className="button">
+        completed
+      </button>
       <button
         className="button buttonDelete"
         onClick={(e) => onDelete(todo.id)}

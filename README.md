@@ -6,4 +6,4 @@
 
 ## puting an event listener to the buttons
 
-## Styling the page
+# Styling the page
