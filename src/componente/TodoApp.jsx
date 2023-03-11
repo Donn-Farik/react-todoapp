@@ -3,7 +3,7 @@ import Todo from "./Todo.jsx";
 import "./todoApp.css";
 
 function App() {
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState("write what would you to do here...");
   const [todos, setTodos] = useState([]);
 
   const handleChange = (e) => {

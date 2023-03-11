@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Oswald:wght@300;400;500;600&display=swap");
+
 .todoContainer {
   width: 500px;
   margin: 100px auto;
@@ -80,4 +82,34 @@
 .todoTitleCompleted {
   background-color: #08986e;
   padding: 2px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.firstTitle {
+  color: #1b1f3b;
+  font-family: "Climate Crisis", cursive;
+  font-size: xx-large;
+  font-weight: 400;
+  text-align: center;
+}
+
+@media (max-width: 400px) {
+  .todoCreateForm {
+    margin: 0 15px;
+  }
+  .todoInfo {
+    margin: 0 15px;
+  }
+}
+@media (min-width: 400px) and (max-width: 600px) {
+  .todoCreateForm {
+    margin: 0 15px;
+  }
+  .todoInfo {
+    margin: 0 15px;
+  }
 }
